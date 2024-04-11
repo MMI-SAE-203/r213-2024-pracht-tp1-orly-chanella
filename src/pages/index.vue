@@ -1,22 +1,41 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
 import { ref } from 'vue';
-const sectionOpen = ref(1)
 //
+const sectionsData = [
+  {
+    label: 'bouton 1',
+    texte: `texte panneau 1 Lorem ipsum dolor sit ame
+    consectetur adipisicing elit. Inventore animi dolore,
+    rerum magni laudantium quod excepturi laboriosam, 
+    ex modi debitis harum reprehenderit eaque quam ut
+    ea molestiae. Id, cum dolor!`
+  },
+  {
+    label: 'bouton 2',
+    texte: `texte panneau 2 Amet alias provident quos quis, 
+    Officia ut ab dolores quos dolorem accusamus ad,
+    consectetur unde minima, ipsum eligendi inventore id
+    labore, laborum rerum laboriosam corrupti iste.
+    Distinctio, perspiciatis!`
+  },
+  {
+    label: 'bouton 3',
+    texte: `texte panneau 3 Repudiandae corporis voluptates, 
+    odit reprehenderit sint pariatur at voluptatum, cumque
+    quia sit eligendi ex culpa eos, alias magnam molestiae
+    id modi accusantium ipsa eveniet accusamus. Tempora 
+    quis corporis et nam.`
+  }
+]
 </script>
 
 <template>
-  <h1 class="text-2xl">Bonjour monde !</h1>
-  <section>
-    <button @click="sectionOpen = 1" class="text-xl" >bouton 1</button>
-    <p v-show="sectionOpen === 1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed quam quas eos quisquam deleniti aliquid temporibus! Ea earum quam ipsa libero excepturi blanditiis dolorum architecto omnis, doloremque doloribus culpa! Nisi?</p>
-  </section>
-  <section>
-    <button @click="sectionOpen = 2" class="text-xl">bouton 2</button>
-    <p v-show="sectionOpen === 2">Sequi quo reprehenderit repellendus molestias, corporis, magnam optio ad, odio ipsam dolorem facilis? Earum magnam dicta sequi necessitatibus tenetur odit, minima animi nihil! Voluptatibus enim fugiat eos, error facilis eius?</p>
-  </section>
-  <section>
-    <button @click="sectionOpen = 3" class="text-xl">bouton 3</button>
-    <p v-show="sectionOpen === 3">Impedit deserunt quaerat ex, perferendis omnis consectetur repellendus non. Quod obcaecati vitae nam quos aliquam voluptatem vero voluptates aut enim ullam? Voluptas perferendis sed similique, pariatur ab quaerat magni eum?</p>
-  </section>
+  <section v-for="({ label, texte }, key) of sectionsData" :key="key">
+  <pre class="font-mono">key : {{ key }}</pre>
+  <pre class="font-mono">label : {{ label }}</pre>
+  <pre class="font-mono">texte : {{ texte }}</pre>
+</section>
+  <h1 class="text-2xl"> A fair avec data Bonjour monde !</h1>
+ 
 </template>
